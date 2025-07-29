@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class ElectricityBillCalculator {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter units consumed: ");
+        int units = sc.nextInt();
+
+        double amount = 0;
+
+        if (units <= 100) {
+            amount = units * 1.5;
+        } else if (units <= 200) {
+            amount = 100 * 1.5 + (units - 100) * 2.5;
+        } else {
+            amount = 100 * 1.5 + 100 * 2.5 + (units - 200) * 3.5;
+        }
+
+        double surcharge = amount * 0.05; // 5% surcharge
+        double total = amount + surcharge;
+
+        System.out.println("Electricity Bill Details:");
+        System.out.println("Units Consumed: " + units);
+        System.out.println("Base Amount: Rs. " + amount);
+        System.out.println("Surcharge (5%): Rs. " + surcharge);
+        System.out.println("Total Bill: Rs. " + total);
+
+        sc.close();
+    }
+}
